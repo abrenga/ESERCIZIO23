@@ -1,49 +1,77 @@
 let prendiDivPadre = document.getElementById("divPadre");
 let cards = [
     {
-        immage: "border-collie_63_0_orig.jpg",
+        image: "Img/border-collie_63_0_orig.jpg",
         titolo: "border Collie",
-        Descrizione:"Cane intellignete e giocherellone"
+        descrizione: "Cane intellignete e giocherellone"
     },
     {
-        immagine: "istockphoto-1137958223-612x612.jpg",
+        image: "Img/istockphoto-1137958223-612x612.jpg",
         titolo: " pincher",
-        Descrizione:"Cane energico e territoriale"
+        descrizione: "Cane energico e territoriale"
     },
     {
-        immagine:"img/vendita-cuccioli-di-pinscher_613513_8_9.jpg",
+        image: "Img/vendita-cuccioli-di-pinscher_613513_8_9.jpg",
         titolo: "pastore tesesco",
-        Descrizione:"Cane intellignete e affettuoso"
+        descrizione: "Cane intellignete e affettuoso"
     }
 ];
 
 
-function creaHtml(){
-
-
-let img = document.createElement("img");
-let div = document.createElement("div");
-
-let h5= document.createElement("h5");
-let p = document.createElement("p");
 
 
 
+function generaHTML(imgContent, titolo, paragrafo) {
+    let img = document.createElement("img");
+    let div = document.createElement("div");
 
-prendiDivPadre.appendChild(img);
-prendiDivPadre.appendChild(div);
+    let h5 = document.createElement("h5");
+    let p = document.createElement("p");
 
-div.appendChild(h5);
-div.appendChild(p)
+    prendiDivPadre.appendChild(img);
+    prendiDivPadre.appendChild(div);
 
+    div.appendChild(h5);
+    div.appendChild(p);
+    img.classList.add("card-img-top");
+    div.classList.add("card-body");
+    h5.classList.add("card-title");
+    p.classList.add("card-text");
 
-return prendiDivPadre;
+    img.src = imgContent;
+    h5.innerHTML = titolo;
+    p.innerHTML = paragrafo;
+
 }
 
-creaHtml();
+function generaHTMLExtension(imgContent, titolo, paragrafo) {
+    const img = createNode("img", prendiDivPadre, "card-img-top", null);
+    img.src = imgContent;
 
-cards.forEach(card=>{
-    let cardHtml = creaHtml();
-    card.immage = cardHtml.
+    const div = createNode("div", prendiDivPadre, "card-body", null);
 
-})
+    const h5 = createNode("h5", div, "card-title", titolo);
+    const p = createNode("p", div, "card-text", paragrafo);
+}
+
+function createNode(type, parent, classList, content) {
+    const node = document.createElement(type);
+
+    if (parent != null)
+        parent.appendChild(node);
+
+    node.classList.add(classList);
+
+    if (content != null)
+        node.innerHTML = content;
+
+    return node;
+}
+
+
+
+
+for (let i = 0; i < cards.length; i++) {
+    generaHTMLExtension(cards[i].image, cards[i].titolo, cards[i].descrizione);
+
+}
