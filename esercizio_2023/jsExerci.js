@@ -34,16 +34,15 @@ function creaNodo(tipo, parente, child) {
     let nodo = document.createElement(tipo);
 
     if (parente != null) {
-        parente.appendChild(nodo);
+        parente.appendChild (nodo);
     }
     if (child != null) {
-        nodo.appendChild(child)
+        nodo.appendChild (child)
 
     }
 return nodo;
 };
 
-creaNoto("td",tbod)
 
 
 /*ora cosa devo fare?
@@ -51,7 +50,7 @@ devo creare per ogni i un tr
  */
 
 resurce.forEach(person => {
-    let td = document.creaNodo("td", tbody, "tr");
+    let td = creaNodo("td", tbody, "tr");
      
     tr.immerHTML = estensioneFileHTML(person.id, person.name, person.surname, person.mail, person.cf, person.address)
 
