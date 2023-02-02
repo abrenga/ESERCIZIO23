@@ -26,21 +26,24 @@ let resurce = [
 
 ];
 
-let tbody = document.getElementsByTagName("tbodyr");
+let tbody = document.getElementById("cool");
 
 
-function creaNodo(tipo, parente, child) {
+function creaNodo(tipo, parente, contenuto) {
 
     let nodo = document.createElement(tipo);
 
     if (parente != null) {
-        parente.appendChild (nodo);
+        parente.appendChild(nodo);
     }
-    if (child != null) {
-        nodo.appendChild (child)
 
+    if (contenuto != null) {
+        contenuto = {}
+        
     }
-return nodo;
+
+
+    return nodo;
 };
 
 
@@ -50,14 +53,16 @@ devo creare per ogni i un tr
  */
 
 resurce.forEach(person => {
-    let td = creaNodo("td", tbody, "tr");
-     
-    tr.immerHTML = estensioneFileHTML(person.id, person.name, person.surname, person.mail, person.cf, person.address)
 
-return
+    estensioneFileHTML(person.id, person.nome, person.cognome, person.indirizzoMail, person.indirizzoVia);
 
 });
 
-function estensioneFileHTML(id, nome, cognome, indirizzoMail, indirizzoVia){
-    
+function estensioneFileHTML(id, nome, cognome, indirizzoMail, indirizzoVia) {
+    let tr = creaNodo("tr", tbody, null);
+    let td = creaNodo("td", tr, {
+        id, nome, cognome, indirizzoMail, indirizzoVia
+    });
+    tr.appendChild(td);
+
 }
