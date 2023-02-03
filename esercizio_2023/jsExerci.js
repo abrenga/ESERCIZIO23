@@ -29,40 +29,35 @@ let resurce = [
 let tbody = document.getElementById("cool");
 
 
-function creaNodo(tipo, parente, contenuto) {
+function creaNodo(tipo, parente, content) {
 
     let nodo = document.createElement(tipo);
 
     if (parente != null) {
         parente.appendChild(nodo);
     }
+    if (content != null) {
+        nodo.innerHTML = content;
 
-    if (contenuto != null) {
-        contenuto = {}
-        
     }
-
 
     return nodo;
 };
 
 
 
-/*ora cosa devo fare?
-devo creare per ogni i un tr
- */
-
-resurce.forEach(person => {
-
-    estensioneFileHTML(person.id, person.nome, person.cognome, person.indirizzoMail, person.indirizzoVia);
-
-});
-
-function estensioneFileHTML(id, nome, cognome, indirizzoMail, indirizzoVia) {
-    let tr = creaNodo("tr", tbody, null);
-    let td = creaNodo("td", tr, {
-        id, nome, cognome, indirizzoMail, indirizzoVia
-    });
-    tr.appendChild(td);
+function popolaOggetto(oggetto) {
 
 }
+
+
+
+
+resurce.forEach(person => {
+    let tr = creaNodo("tr", tbody, null);
+
+    
+});
+
+
+
