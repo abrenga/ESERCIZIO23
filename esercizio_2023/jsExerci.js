@@ -46,17 +46,19 @@ function creaNodo(tipo, parente, content) {
 
 
 
-function popolaOggetto(oggetto) {
-
-}
 
 
 
 
 resurce.forEach(person => {
     let tr = creaNodo("tr", tbody, null);
-
     
+    creaNodo("td",tr,person.id);
+    creaNodo("td",tr,person.name);
+    creaNodo("td",tr,person.surname);
+    creaNodo("td",tr,person.mail);
+    creaNodo("td",tr,person.cf);
+    creaNodo("td",tr,person.address);
 });
 
 
