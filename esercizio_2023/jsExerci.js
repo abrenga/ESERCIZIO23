@@ -46,10 +46,6 @@ function creaNodo(tipo, parente, content) {
 
 
 
-
-
-
-
 resurce.forEach(person => {
     let tr = creaNodo("tr", tbody, null);
     
@@ -60,6 +56,7 @@ resurce.forEach(person => {
     creaNodo("td",tr,person.cf);
     creaNodo("td",tr,person.address);
 });
+
 
 
 
