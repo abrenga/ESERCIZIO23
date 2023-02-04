@@ -3,42 +3,42 @@ class Tabella {
         this.root = document.getElementById("thead")
         this.creaRigaPrincipale(nomiRiga)
         this.body = document.getElementById("t-body")
-        this.listaClienti=listaClienti;
+
+        this.listaNomi(listaClienti)
     }
 
 
 
     creaRigaPrincipale(nomiRiga) {
-        let tr = this.creaNodo("tr", this.root, null, null)
+        let tr = this.creaNodo("tr", this.root, null)
         nomiRiga.forEach(nome => {
-            let th = this.creaNodo("th", tr, null, nome)
+            let th = this.creaNodo("th", tr, nome)
 
         });
 
     }
 
-    creaNodo(tipo, genitore, classe, contenuto) {
+    creaNodo(tipo, genitore, contenuto) {
         let nodo = document.createElement(tipo);
         if (genitore != null) {
             genitore.appendChild(nodo);
         }
-        if (classe != null) {
-            nodo.cassList.add(classe);
-        }
+
         if (contenuto != null) {
             nodo.innerHTML = contenuto;
         }
         return nodo;
     }
 
-    listaNomi(listaClientil) {
-        let tr = this.creaNodo("tr", this.body, null, null);
-        const self = this;
-        this.listaClienti.forEach(cliente => {
-            self.creaNodo("td", tr, null, cliente.id)
-            self.creaNodo("td", tr, null, cliente.nome)
-            self.creaNodo("td", tr, null, cliente.cognome)
-            self.creaNodo("td", tr, null, cliente.mail)
+    listaNomi(listaClienti) {
+        let tr = this.creaNodo("tr", this.body, null);
+
+        listaClienti.forEach(cliente => {
+            this.creaNodo("td", tr, cliente.id)
+            this.creaNodo("td", tr, cliente.nome)
+            this.creaNodo("td", tr, cliente.cognome)
+            this.creaNodo("td", tr, cliente.mail)
+
 
         })
 
@@ -51,7 +51,8 @@ class Tabella {
 
 }
 
-let tabellamia = new Tabella(["id", "nome", "cognome", "mail"],[{id:"01",nome:"antonietta",cognome:"brenga",mail:"antogrg90@hotmail.it"}])
+
+let tabellamia = new Tabella(["id", "nome", "cognome", "mail"], [{ id: "01", nome: "Anto", cognome: "brg", mail: "skasa" }])
 
 
 
