@@ -6,23 +6,52 @@ https://lorenzoneri.com/come-mescolare-shuffle-un-array-in-javascript/ */
 
 
 class MazzoDiCarte {
-    constructor(arrayDiCarte){
-
+    constructor(mazzoDiCarte) {
+        this.mazzoDiCarte = mazzoDiCarte;
+        this.mischiaCarte(mazzoDiCarte);
+        this.pescaCarte(mazzoDiCarte);
     }
 
-    mischiaCarte() {
+    mischiaCarte(mazzoDiCarte) {
+        for (let i = 0; i < mazzoDiCarte.length - 1; i++) {
+            let cartaCasuale = Math.floor(Math.random() * (i)
+            );
 
+            let temporaryvalue = mazzoDiCarte[i]
+            mazzoDiCarte[i] = mazzoDiCarte[cartaCasuale]
+            mazzoDiCarte[cartaCasuale] = temporaryvalue
+
+        };
+
+        console.log(mazzoDiCarte);
     }
 
-    pescaCarte() {
+    pescaCarte(mazzoDiCarte) {
+        let max = mazzoDiCarte.length - 1;
+        let min = 0;
 
+        let i = (Math.floor(Math.random() * (max - min + 1)) + min)
+
+        console.log(mazzoDiCarte[i]);
+
+        this.rimuoviDalMazzo(i)
+    }
+
+    rimuoviDalMazzo(index) {
+
+        this.mazzoDiCarte.splice(index, 1)
+        console.log(this.mazzoDiCarte)
     }
 
 
-    rmettereCartaInfondo(){
+
+    rmettereCartaInfondo(mazzoDiCarte) {
+
 
     }
 }
 
 
+
+let mioMazzo = new MazzoDiCarte(["tre di cuori", "asso di denari", "due di picche", "asso Di cuori"]);
 
