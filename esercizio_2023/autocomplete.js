@@ -11,6 +11,8 @@ class BarraDiRicerca {
         this.input = document.getElementById("input");;
         this.arrayDiSuggerimenti = arrayDiSuggerimenti
         this.prendiInput(this.input);
+        this.prendiSuggerimenti(this.input);
+        this.riposizionaNelImput()
 
 
 
@@ -18,23 +20,32 @@ class BarraDiRicerca {
 
     prendiInput(input) {
 
-        input.addEventListener("input", (arrayDiSuggerimenti) => {
-            for (let i = 0; i < arrayDiSuggerimenti; i++) {
-                if (this.input.value == arrayDiSuggerimenti[i]) {
-                    console.log(this.input.value)
-                } else console.log("non trovato")
 
-            }
+        input.addEventListener("input", () => {
+            this.prendiSuggerimenti(input.value);
         })
 
+    }
+
+    prendiSuggerimenti(input) {
+        for (let i = 0; i < this.arrayDiSuggerimenti.length; i++) {
+            if (input == this.arrayDiSuggerimenti[i]) {
+                this.riposizionaNelImput(input)
+            }
+        }
+    }
+
+    riposizionaNelImput(input) {
 
 
     }
 
-
-
-
-
 }
 
-let input = new BarraDiRicerca(["io", "ciao"])
+
+
+
+
+
+
+//let input = new BarraDiRicerca(["io", "ciao"])
