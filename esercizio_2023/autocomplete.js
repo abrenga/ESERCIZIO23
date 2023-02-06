@@ -8,27 +8,41 @@ Cliccando sui nomi suggeriti il valore deve essere trasferito sulla barra di ric
 class BarraDiRicerca {
 
     constructor(arrayDiSuggerimenti) {
-        this.input = document.getElementById("input");;
+        this.input = document.getElementById("input");
+
         this.arrayDiSuggerimenti = arrayDiSuggerimenti
         this.prendiInput(this.input);
-
+        this.prendiSuggerimento(this.input.value)
 
 
     }
 
     prendiInput(input) {
 
-        input.addEventListener("input", (arrayDiSuggerimenti) => {
-            for (let i = 0; i < arrayDiSuggerimenti; i++) {
-                if (this.input.value == arrayDiSuggerimenti[i]) {
-                    console.log(this.input.value)
-                } else console.log("non trovato")
-
-            }
+        input.addEventListener("input", () => {
+            this.prendiSuggerimento(input.value)
+            console.log(input.value)
         })
 
+    }
+
+    prendiSuggerimento(input) {
+
+        
+        for (let i = 0; i < this.arrayDiSuggerimenti; i++) {
+            if (input != this.arrayDiSuggerimenti[i]) {
+                alert("NO");
+            }
+            else if(input == arrayDiSuggerimenti[i]) {
+                alert("trovato")
+            }
+            alert(input)
+           
 
 
+
+
+        }
     }
 
 
@@ -37,4 +51,4 @@ class BarraDiRicerca {
 
 }
 
-let input = new BarraDiRicerca(["io", "ciao"])
+let input = new BarraDiRicerca(["io", "ciao", "wewe"])
