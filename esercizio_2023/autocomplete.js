@@ -24,31 +24,36 @@ class BarraDiRicerca {
             console.log(input.value)
         })
 
-    }
 
-    prendiSuggerimento(input) {
-
-        
         for (let i = 0; i < this.arrayDiSuggerimenti; i++) {
             if (input != this.arrayDiSuggerimenti[i]) {
                 alert("NO");
             }
-            else if(input == arrayDiSuggerimenti[i]) {
+            else if (input == arrayDiSuggerimenti[i]) {
                 alert("trovato")
             }
             alert(input)
-           
+         }
+
+
+            prendiSuggerimenti(input) {
+                for (let i = 0; i < this.arrayDiSuggerimenti.length; i++) {
+                    if (input == this.arrayDiSuggerimenti[i]) {
+                        this.riposizionaNelImput(input)
+                    }
+                }
+            }
+
+            riposizionaNelImput(input) {
 
 
 
 
+
+            }
         }
+
     }
-
-
-
-
-
 }
 
 let input = new BarraDiRicerca(["io", "ciao", "wewe"])
