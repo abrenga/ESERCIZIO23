@@ -13,18 +13,19 @@ class BarraDiRicerca {
         this.arrayDiSuggerimenti = arrayDiSuggerimenti
         this.prendiInput(this.input);
         this.prendiSuggerimenti(this.input);
-        this.riposizionaNelImput(this.input)
-
+        this.riposizionaNelImput(this.arrayDiSuggerimenti[i])
 
 
     }
 
     prendiInput(input) {
         input.addEventListener("input", () => {
-            this.prendiSuggerimenti(input.value);
+            this.prendiSuggerimenti(input.value)
+            
         })
-
     }
+
+
 
     prendiSuggerimenti(input) {
         for (let i = 0; i < this.arrayDiSuggerimenti.length; i++) {
@@ -36,7 +37,7 @@ class BarraDiRicerca {
 
 
     riposizionaNelImput(value) {
-          console.log(value)
+        this.dropD.innerHTML = `<li ">${value}</li>`
 
     }
 
@@ -48,6 +49,4 @@ class BarraDiRicerca {
 
 
 
-
-
-let input = new BarraDiRicerca(["io", "ciao","Antonietta"])
+let input = new BarraDiRicerca(["io", "ciao", "Antonietta"])
