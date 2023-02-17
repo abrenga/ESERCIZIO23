@@ -12,48 +12,46 @@ class BarraDiRicerca {
 
         this.arrayDiSuggerimenti = arrayDiSuggerimenti
         this.prendiInput(this.input);
-        this.prendiSuggerimento(this.input.value)
+        this.prendiSuggerimento(this.input);
+        this.riposizionaNelImput(this.input);
 
 
     }
 
     prendiInput(input) {
 
-        input.addEventListener("input", () => {
+        input.addEventListener("keyup", () => {
             this.prendiSuggerimento(input.value)
-            console.log(input.value)
+
         })
 
 
         for (let i = 0; i < this.arrayDiSuggerimenti; i++) {
             if (input != this.arrayDiSuggerimenti[i]) {
-                alert("NO");
-            }
-            else if (input == arrayDiSuggerimenti[i]) {
-                alert("trovato")
-            }
-            alert(input)
-         }
-
-
-            prendiSuggerimenti(input) {
-                for (let i = 0; i < this.arrayDiSuggerimenti.length; i++) {
-                    if (input == this.arrayDiSuggerimenti[i]) {
-                        this.riposizionaNelImput(input)
-                    }
-                }
-            }
-
-            riposizionaNelImput(input) {
-
-
-
-
 
             }
+
         }
 
     }
+
+
+    prendiSuggerimenti(input) {
+        for (let i = 0; i < this.arrayDiSuggerimenti.length; i++) {
+            if (input == this.arrayDiSuggerimenti[i]) {
+                this.riposizionaNelImput(input)
+            }
+        }
+    }
+
+    riposizionaNelImput(input) {
+
+
+    }
 }
+
+    
+
+
 
 let input = new BarraDiRicerca(["io", "ciao", "wewe"])
