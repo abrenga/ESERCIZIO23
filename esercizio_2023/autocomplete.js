@@ -9,49 +9,44 @@ class BarraDiRicerca {
 
     constructor(arrayDiSuggerimenti) {
         this.input = document.getElementById("input");
-
+        this.dropD = document.getElementById("menu")
         this.arrayDiSuggerimenti = arrayDiSuggerimenti
         this.prendiInput(this.input);
-        this.prendiSuggerimento(this.input);
-        this.riposizionaNelImput(this.input);
+        this.prendiSuggerimenti(this.input);
+        this.riposizionaNelImput(this.arrayDiSuggerimenti[i])
 
 
     }
 
     prendiInput(input) {
-
-        input.addEventListener("keyup", () => {
-            this.prendiSuggerimento(input.value)
-
+        input.addEventListener("input", () => {
+            this.prendiSuggerimenti(input.value)
+            
         })
-
-
-        for (let i = 0; i < this.arrayDiSuggerimenti; i++) {
-            if (input != this.arrayDiSuggerimenti[i]) {
-
-            }
-
-        }
-
     }
+
 
 
     prendiSuggerimenti(input) {
         for (let i = 0; i < this.arrayDiSuggerimenti.length; i++) {
-            if (input == this.arrayDiSuggerimenti[i]) {
-                this.riposizionaNelImput(input)
+            if (this.arrayDiSuggerimenti[i].includes(input)) {
+                this.riposizionaNelImput(this.arrayDiSuggerimenti[i])
             }
         }
     }
 
-    riposizionaNelImput(input) {
 
+    riposizionaNelImput(value) {
+        this.dropD.innerHTML = `<li ">${value}</li>`
 
     }
+
+
+
+
 }
 
-    
 
 
 
-let input = new BarraDiRicerca(["io", "ciao", "wewe"])
+let input = new BarraDiRicerca(["io", "ciao", "Antonietta"])
